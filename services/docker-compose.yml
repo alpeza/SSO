@@ -1,0 +1,42 @@
+version: "3.9"
+services:
+  app1:
+    image: alpeza/dummyweb:latest
+    environment:
+      MESSAGE: |
+        <h1>Service 1</h1>
+        <p>Este es el servicio dummy 1</p>
+      HOST: "0.0.0.0"
+      PORT: 5000
+    ports:
+      - "5004:5000"
+    networks:
+      - npm_ssonet
+  app2:
+    image: alpeza/dummyweb:latest
+    environment:
+      MESSAGE: |
+        <h1>Service 2</h1>
+        <p>Este es el servicio dummy 2</p>
+      HOST: "0.0.0.0"
+      PORT: 5000
+    ports:
+      - "5005:5000"
+    networks:
+      - npm_ssonet
+  app3:
+    image: alpeza/dummyweb:latest
+    environment:
+      MESSAGE: |
+        <h1>Service 3</h1>
+        <p>Este es el servicio dummy 3</p>
+      HOST: "0.0.0.0"
+      PORT: 5000
+    ports:
+      - "5006:5000"
+    networks:
+      - npm_ssonet
+
+networks:
+  npm_ssonet:
+    external: true
